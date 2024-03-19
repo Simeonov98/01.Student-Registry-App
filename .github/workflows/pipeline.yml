@@ -38,7 +38,8 @@ jobs:
         run: npm test
   Deploy:
     needs: Test-integration
-    runs-on: ubuntu-lates
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
     steps:
     - name: Deploy to production
       uses: johnbeynon/render-deploy-action@v.0.0.8
